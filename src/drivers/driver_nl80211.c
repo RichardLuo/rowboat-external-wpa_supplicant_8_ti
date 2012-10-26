@@ -9775,7 +9775,8 @@ static int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
 					  MAC2STR(macaddr));
 	} else if (os_strcasecmp(cmd, "RELOAD") == 0) {
 		wpa_msg(drv->ctx, MSG_INFO, WPA_EVENT_DRIVER_STATE "HANGED");
-	} else if( os_strncasecmp(cmd, "RXFILTER-ADD ", 13) == 0 ) {
+	}
+	/*else if( os_strncasecmp(cmd, "RXFILTER-ADD ", 13) == 0 ) {
 		int i = nl80211_parse_wowlan_trigger_nr(cmd + 13);
 		if(i < 0)
 			return i;
@@ -9789,7 +9790,8 @@ static int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
 		return nl80211_set_wowlan_triggers(bss, 1);
 	} else if (os_strcasecmp(cmd, "RXFILTER-STOP") == 0) {
 		return nl80211_set_wowlan_triggers(bss, 0);
-	} else {
+	}*/
+	else {
 		wpa_printf(MSG_ERROR, "Unsupported command: %s", cmd);
 		ret = -1;
 	}
